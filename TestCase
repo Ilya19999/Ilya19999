@@ -1,0 +1,50 @@
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+import random
+#from fake_useragent import UserAgent
+#from proxy_auth_data import login, password
+#user_agents_list = [
+#    "hello_world",
+#    "best_friends",
+#    "python_today"
+#]
+useragent = UserAgent()
+
+#options
+
+options = webdriver.ChromeOptions("user-agent=Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
+options.add_argument(f"user-agent={(useragent.random)}")
+
+proxy_options = {
+    "proxy": {
+        "https": f"http://{login}:{password}@"
+    }
+
+}
+#set proxy
+#options.add_argument("--proxy-server=localhost:8000")
+
+#url = "https://www.google.com/"
+driver = webdriver.Chrome(
+
+    options=options
+)
+try:
+    #driver.get(url="https://www.whatismybrowser.com/detect/what-is-my-user-agent/")
+    #time.sleep(5)
+    #driver.get("https://www.google.com/")
+    #time.sleep(5)
+    #driver.refresh()
+    #driver.add_cookie()
+    #driver.get_screenshot_as_file("1.png")
+    #driver.get("https://www.google.com/")
+    #driver.save_screenshot()
+    driver.get("https://2ip.ru")
+    time.sleep(5)
+except Exception as ex:
+
+    print(ex)
+finally:
+    driver.close()
+    driver.quit()
